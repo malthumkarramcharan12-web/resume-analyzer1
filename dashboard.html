@@ -1,0 +1,11 @@
+<h2>Dashboard</h2>
+
+<a href="/analyze">Analyze Resume</a> |
+<a href="/logout">Logout</a>
+
+<h3>Previous Scores</h3>
+<ul>
+{% for r in results %}
+<li>{{ r[0] }}%</li>
+{% endfor %}
+</ul>
