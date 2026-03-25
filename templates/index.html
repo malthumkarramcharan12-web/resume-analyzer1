@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Resume Analyzer</title>
+</head>
+<body>
+
+<h1>AI Resume Analyzer</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    <p>Upload Resume:</p>
+    <input type="file" name="resume" required>
+
+    <p>Paste Job Description:</p>
+    <textarea name="job_desc" required></textarea><br><br>
+
+    <button type="submit">Analyze</button>
+</form>
+
+{% if result %}
+    <h2>Results</h2>
+    <p>Score: {{ result.score }}%</p>
+
+    <h3>Skills:</h3>
+    <ul>
+        {% for s in result.skills %}
+            <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Missing Skills:</h3>
+    <ul>
+        {% for m in result.missing %}
+            <li>{{ m }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+</body>
+</html>
