@@ -1,0 +1,31 @@
+<h2>Analyze Resume</h2>
+
+<form method="POST">
+<textarea name="job_desc" placeholder="Paste job description"></textarea><br><br>
+<button>Analyze</button>
+</form>
+
+{% if result %}
+<h3>Score: {{ result.score }}%</h3>
+
+<h4>Skills</h4>
+<ul>
+{% for s in result.skills %}
+<li>{{ s }}</li>
+{% endfor %}
+</ul>
+
+<h4>Missing Skills</h4>
+<ul>
+{% for m in result.missing %}
+<li>{{ m }}</li>
+{% endfor %}
+</ul>
+
+<h4>Suggestions</h4>
+<ul>
+{% for s in result.suggestions %}
+<li>{{ s }}</li>
+{% endfor %}
+</ul>
+{% endif %}
